@@ -1,0 +1,799 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #333333;
+    line-height: 28px;
+    text-align: center;
+    overflow-x: hidden !important;
+    margin: auto !important;
+}
+
+h1,
+h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+h1 {
+    font-size: 42px;
+    line-height: 62px;
+}
+
+h2 {
+    font-size: 32px;
+    line-height: 42px;
+}
+
+h3 {
+    font-size: 22px;
+    line-height: 38px;
+    font-weight: 300;
+}
+
+h4 {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 300;
+}
+
+h5 {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+
+/*Buttons Train Coaches*/
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
+
+/*Heading*/
+
+.btn {
+    min-width: 160px;
+    width: fit-content;
+    width: -moz-fit-content;
+    background-color: white;
+    padding: 0 30px;
+    height: 50px;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: black;
+    letter-spacing: 2.8px;
+    font-weight: 700;
+    line-height: 1.6;
+    box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 0;
+    /* btn text */
+}
+
+/*Blueline*/
+
+.btn.blueline {
+    min-width: 160px;
+    width: fit-content;
+    width: -moz-fit-content;
+    background-color: white;
+    padding: 0 30px;
+    height: 50px;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: black;
+    letter-spacing: 2.8px;
+    font-weight: 700;
+    line-height: 1.6;
+    box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 0;
+    /* btn text */
+}
+
+.btn.blueline span {
+    z-index: 1;
+    text-align: center;
+}
+
+.btn.blueline:before,
+.btn.blueline:after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    top: 0;
+    transition: all 0.4s ease;
+    background-color: #3b76c0;
+}
+
+.btn.blueline:before {
+    left: 0;
+}
+
+.btn.blueline:after {
+    right: 0;
+}
+
+.btn.blueline:hover {
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px -12px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
+    color: white;
+}
+
+.btn.blueline:hover:before,
+.btn.blueline:hover:after {
+    width: 51%;
+}
+
+/*Red Line*/
+.btn.redline {
+    min-width: 160px;
+    width: fit-content;
+    width: -moz-fit-content;
+    background-color: white;
+    padding: 0 30px;
+    height: 50px;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: black;
+    letter-spacing: 2.8px;
+    font-weight: 700;
+    line-height: 1.6;
+    box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 0;
+    /* btn text */
+}
+
+.btn.redline span {
+    z-index: 1;
+    text-align: center;
+}
+
+.btn.redline:before,
+.btn.redline:after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    top: 0;
+    transition: all 0.4s ease;
+    background-color: #c0282c;
+}
+
+.btn.redline:before {
+    left: 0;
+}
+
+.btn.redline:after {
+    right: 0;
+}
+
+.btn.redline:hover {
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px -12px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
+    color: white;
+}
+
+.btn.redline:hover:before,
+.btn.redline:hover:after {
+    width: 51%;
+}
+
+/*Yellow Line*/
+.btn.yellowline {
+    min-width: 160px;
+    width: fit-content;
+    width: -moz-fit-content;
+    background-color: white;
+    padding: 0 30px;
+    height: 50px;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: black;
+    letter-spacing: 2.8px;
+    font-weight: 700;
+    line-height: 1.6;
+    box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 0;
+    /* btn text */
+}
+
+.btn.yellowline span {
+    z-index: 1;
+    text-align: center;
+}
+
+.btn.yellowline:before,
+.btn.yellowline:after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    top: 0;
+    transition: all 0.4s ease;
+    background-color: #f6d71a;
+}
+
+.btn.yellowline:before {
+    left: 0;
+}
+
+.btn.yellowline:after {
+    right: 0;
+}
+
+.btn.yellowline:hover {
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px -12px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
+    color: white;
+}
+
+.btn.yellowline:hover:before,
+.btn.yellowline:hover:after {
+    width: 51%;
+}
+
+/*Green Line*/
+.btn.greenline {
+    min-width: 160px;
+    width: fit-content;
+    width: -moz-fit-content;
+    background-color: white;
+    padding: 0 30px;
+    height: 50px;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: black;
+    letter-spacing: 2.8px;
+    font-weight: 700;
+    line-height: 1.6;
+    box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 0;
+    /* btn text */
+}
+
+.btn.greenline span {
+    z-index: 1;
+    text-align: center;
+}
+
+.btn.greenline:before,
+.btn.greenline:after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    top: 0;
+    transition: all 0.4s ease;
+    background-color: #57ad58;
+}
+
+.btn.greenline:before {
+    left: 0;
+}
+
+.btn.greenline:after {
+    right: 0;
+}
+
+.btn.greenline:hover {
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px -12px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
+    color: white;
+}
+
+.btn.greenline:hover:before,
+.btn.greenline:hover:after {
+    width: 51%;
+}
+
+
+/*Voilet Line*/
+.btn.voiletline {
+    min-width: 160px;
+    width: fit-content;
+    width: -moz-fit-content;
+    background-color: white;
+    padding: 0 30px;
+    height: 50px;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: black;
+    letter-spacing: 2.8px;
+    font-weight: 700;
+    line-height: 1.6;
+    box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 0;
+    /* btn text */
+}
+
+.btn.voiletline span {
+    z-index: 1;
+    text-align: center;
+}
+
+.btn.voiletline:before,
+.btn.voiletline:after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    top: 0;
+    transition: all 0.4s ease;
+    background-color: #57ad58;
+}
+
+.btn.voiletline:before {
+    left: 0;
+}
+
+.btn.voiletline:after {
+    right: 0;
+}
+
+.btn.voiletline:hover {
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px -12px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
+    color: white;
+}
+
+.btn.voiletline:hover:before,
+.btn.voiletline:hover:after {
+    width: 51%;
+}
+
+/*Voilet Line*/
+.btn.voiletline {
+    min-width: 160px;
+    width: fit-content;
+    width: -moz-fit-content;
+    background-color: white;
+    padding: 0 30px;
+    height: 50px;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: black;
+    letter-spacing: 2.8px;
+    font-weight: 700;
+    line-height: 1.6;
+    box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 0;
+    /* btn text */
+}
+
+.btn.voiletline span {
+    z-index: 1;
+    text-align: center;
+}
+
+.btn.voiletline:before,
+.btn.voiletline:after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    top: 0;
+    transition: all 0.4s ease;
+    background-color: #8115ff;
+}
+
+.btn.voiletline:before {
+    left: 0;
+}
+
+.btn.voiletline:after {
+    right: 0;
+}
+
+.btn.voiletline:hover {
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px -12px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
+    color: white;
+}
+
+.btn.voiletline:hover:before,
+.btn.voiletline:hover:after {
+    width: 51%;
+}
+
+/*Pink Line*/
+.btn.pinkline {
+    min-width: 160px;
+    width: fit-content;
+    width: -moz-fit-content;
+    background-color: white;
+    padding: 0 30px;
+    height: 50px;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: black;
+    letter-spacing: 2.8px;
+    font-weight: 700;
+    line-height: 1.6;
+    box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 0;
+    /* btn text */
+}
+
+.btn.pinkline span {
+    z-index: 1;
+    text-align: center;
+}
+
+.btn.pinkline:before,
+.btn.pinkline:after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    top: 0;
+    transition: all 0.4s ease;
+    background-color: #ed91c9;
+}
+
+.btn.pinkline:before {
+    left: 0;
+}
+
+.btn.pinkline:after {
+    right: 0;
+}
+
+.btn.pinkline:hover {
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px -12px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
+    color: white;
+}
+
+.btn.pinkline:hover:before,
+.btn.pinkline:hover:after {
+    width: 51%;
+}
+
+/*Magenta Line*/
+.btn.magentaline {
+    min-width: 160px;
+    width: fit-content;
+    width: -moz-fit-content;
+    background-color: white;
+    padding: 0 30px;
+    height: 50px;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: black;
+    letter-spacing: 2.8px;
+    font-weight: 700;
+    line-height: 1.6;
+    box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 0;
+    /* btn text */
+}
+
+.btn.magentaline span {
+    z-index: 1;
+    text-align: center;
+}
+
+.btn.magentaline:before,
+.btn.magentaline:after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    top: 0;
+    transition: all 0.4s ease;
+    background-color: #ff00ff;
+}
+
+.btn.magentaline:before {
+    left: 0;
+}
+
+.btn.magentaline:after {
+    right: 0;
+}
+
+.btn.magentaline:hover {
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px -12px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
+    color: white;
+}
+
+.btn.magentaline:hover:before,
+.btn.magentaline:hover:after {
+    width: 51%;
+}
+
+/*Grey Line*/
+.btn.greyline {
+    min-width: 160px;
+    width: fit-content;
+    width: -moz-fit-content;
+    background-color: white;
+    padding: 0 30px;
+    height: 50px;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: black;
+    letter-spacing: 2.8px;
+    font-weight: 700;
+    line-height: 1.6;
+    box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 0;
+    /* btn text */
+}
+
+.btn.greyline span {
+    z-index: 1;
+    text-align: center;
+}
+
+.btn.greyline:before,
+.btn.greyline:after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    top: 0;
+    transition: all 0.4s ease;
+    background-color: #808080;
+}
+
+.btn.greyline:before {
+    left: 0;
+}
+
+.btn.greyline:after {
+    right: 0;
+}
+
+.btn.greyline:hover {
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px -12px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
+    color: white;
+}
+
+.btn.greyline:hover:before,
+.btn.greyline:hover:after {
+    width: 51%;
+}
+
+/*Orange Line*/
+.btn.orangeline {
+    min-width: 160px;
+    width: fit-content;
+    width: -moz-fit-content;
+    background-color: white;
+    padding: 0 30px;
+    height: 50px;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: black;
+    letter-spacing: 2.8px;
+    font-weight: 700;
+    line-height: 1.6;
+    box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 0;
+    /* btn text */
+}
+
+.btn.orangeline span {
+    z-index: 1;
+    text-align: center;
+}
+
+.btn.orangeline:before,
+.btn.orangeline:after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    top: 0;
+    transition: all 0.4s ease;
+    background-color: #f46808;
+}
+
+.btn.orangeline:before {
+    left: 0;
+}
+
+.btn.orangeline:after {
+    right: 0;
+}
+
+.btn.orangeline:hover {
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px -12px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
+    color: white;
+}
+
+.btn.orangeline:hover:before,
+.btn.orangeline:hover:after {
+    width: 51%;
+}
+
+.btncenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    /* Adjust this value based on your requirements */
+}
+
+
+/* RESPONSIVE DESIGN */
+/* Extra Small devices (tablets, 446px and less) */
+@media (max-width: 456px) {
+
+    .btn {
+        min-width: 20px;
+        width: fit-content;
+        width: -moz-fit-content;
+        background-color: white;
+        padding: 0 30px;
+        height: 50px;
+        font-family: "Open Sans", sans-serif;
+        text-transform: uppercase;
+        font-size: 8px;
+        color: black;
+        letter-spacing: 2px;
+        font-weight: 200;
+        line-height: 1.6;
+        box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.3);
+        position: relative;
+        transition: all 0.4s ease;
+        cursor: pointer;
+        display: -webkit-flex;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border: 0;
+        /* btn text */
+    }
+
+    .btn.blueline,
+    .btn.redline,
+    .btn.greenline,
+    .btn.greyline,
+    .btn.magentaline,
+    .btn.orangeline,
+    .btn.pinkline,
+    .btn.voiletline,
+    .btn.yellowline {
+        min-width: 48px;
+        width: fit-content;
+        width: -moz-fit-content;
+        background-color: white;
+        padding: 0px 0px;
+        height: 25px;
+        font-family: "Open Sans", sans-serif;
+        text-transform: uppercase;
+        font-size: 8px;
+        color: black;
+        letter-spacing: 0px;
+        font-weight: 200;
+        line-height: 1.6;
+        box-shadow: 0 15px 4px -1px rgba(0, 0, 0, 0.3);
+        position: relative;
+        transition: all 0.4s ease;
+        cursor: pointer;
+        display: -webkit-flex;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border: 0;
+    }
+}

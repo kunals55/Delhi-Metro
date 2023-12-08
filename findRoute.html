@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dropdown Example</title>
+    <script>
+      function fetchData(from , to) {
+        fetch(`http://localhost:3000/proxy?from=${from}&to=${to}`  )
+          .then((data) => {
+            // Process the returned data
+            console.log(data);
+            // Update the HTML with the received data
+            var resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = "Received data: " + JSON.stringify(data);
+          })
+          .catch((error) => {
+            // Handle any errors
+            console.error("Error:", error);
+          });
+      }
+
+      function displayOptions() {
+        var dropdown1 = document.getElementById("dropdown1");
+        var dropdown2 = document.getElementById("dropdown2");
+        var selectedOption1 = dropdown1.options[dropdown1.selectedIndex].value;
+        var selectedOption2 = dropdown2.options[dropdown2.selectedIndex].value;
+
+        var resultDiv = document.getElementById("result");
+        resultDiv.innerHTML =
+          "Your Route : " + selectedOption1 + " and " + selectedOption2;
+        fetchData(selectedOption1,selectedOption2);
+      }
+    </script>
+  </head>
+  <body>
+    <h2>Dropdown Example</h2>
+    <label for="dropdown1">Dropdown 1:</label>
+    <select id="dropdown1">
+      <option value="Noida Sector 101">Option 1</option>
+      <option value="Nangloi">Option 2</option>
+      <option value="Nirman Vihar">Option 3</option>
+    </select>
+
+    <br /><br />
+
+    <label for="dropdown2">Dropdown 2:</label>
+    <select id="dropdown2">
+      <option value="Noida Sector 101">Option 1</option>
+      <option value="Nangloi">Option 2</option>
+      <option value="Nirman Vihar">Option 3</option>
+    </select>
+
+    <br /><br />
+
+    <button onclick="displayOptions()">Submit</button>
+
+    <br /><br />
+
+    <div id="result"></div>
+  </body>
+</html>

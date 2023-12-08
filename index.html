@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>DELHI METRO</title>
+
+	<!--Java Script-->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+	</script>
+
+	<!--Bootstrap-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Roboto&display=swap"
+		rel="stylesheet">
+
+	<!-- WEB FONTS -->
+	<link href='http://fonts.googleapis.com/css?family=Roboto:100,300,100italic,400,300italic' rel='stylesheet'
+		type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300&display=swap"
+		rel="stylesheet">
+	<link rel="shortcut icon" href="images\favicon.ico" type="image/x-icon">
+
+	<!-- BOOTSTRAP -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- FONT AWESOME -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<script src="https://kit.fontawesome.com/7d405a99ed.js" crossorigin="anonymous"></script>
+
+	<!-- CUSTOM STYLING -->
+	<link href="css/styles.css" rel="stylesheet">
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+	</script>
+</head>
+
+<body>
+	<!-- HEADER -->
+	<section id="header">
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-md-8">
+					<br><br><br><br>
+					<img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/6/65/Delhi_Metro_logo.svg" />
+					<h1 class="	white-text">Delhi Metro</h1>
+					<h5 class="white-text">DELHI METRO TRAVEL PLANNER<br><br>Find Delhi metro route, stations list,
+						timings,
+						distance, travel time, parkingcharges, metromuseum, tourist places and more about Delhi
+						Metro</h5>
+					<div id="countdown" class="white-text"></div>
+				</div>
+			</div>
+		</div>
+		<div class="animation">
+			<a class="arrow-down-animation" data-scroll href="#about"><i class="fa fa-angle-down"></i></a>
+		</div>
+	</section>
+	<!-- HEADER ENDS -->
+	<br><br>
+
+	<!-- Google Translate API ENDS -->
+	<div id="google_translate_element"></div>
+	<script type="text/javascript">
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement({
+					pageLanguage: 'en'
+				},
+				'google_translate_element'
+			);
+		}
+	</script>
+
+	<!-- Script code for google translator API -->
+	<script type="text/javascript"
+		src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+	</script>
+	<!-- Google Translate API ENDS -->
+
+	<!-- Scrolling Text -->
+	<marquee width="90%" direction="left" height="40px" scrollamount="6">
+		<b>Update:</b>
+		Due to renovation work, the parking area at Sultanpur Metro Station will remain closed for commuters from 1st
+		June 2023 till 10th June 2023.
+
+		Inconvenience is regretted.
+	</marquee>
+
+	<marquee width="90%" direction="left" height="40px" scrollamount="6">
+		<b></b>
+		जीर्णोद्धार कार्य के कारण सुल्तानपुर मेट्रो स्टेशन पर पार्किंग क्षेत्र 1 जून 2023 से 10 जून 2023 तक यात्रियों के
+		लिए बंद रहेगा।
+
+		असुविधा के लिए खेद है।
+	</marquee>
+	<!-- Scrolling Text ENDS -->
+
+	<!-- ABOUT -->
+	<section id="about">
+		<div class="container">
+			<!-- Section 1 -->
+			<div data-sr="enter top over 1s, wait 0.3s, move 24px, reset" class="col-md-4">
+				<a href="Delhi Metro - Info\index.html"><i class="fa fa-info"></i></a>
+				<h3>Delhi Metro Info</h3>
+				<div class="colored-line-small-center"></div>
+				<p>All Info about Delhi Metro</p><br><br>
+			</div>
+
+			<!-- Section 2 -->
+			<div data-sr="enter bottom over 1s, wait 0.3s, move 24px, reset" class="col-md-4 middle">
+				<a href="images\delhimetromap.jpg"><i class="fa fa-map-marker"></i></a>
+				<h3>Map</h3>
+				<div class="colored-line-small-center"></div>
+				<p>Delhi Metro Map</p><br><br>
+			</div>
+
+			<!-- Section 3 -->
+			<div data-sr="enter bottom over 1s, wait 0.3s, move 24px, reset" class="col-md-4 middle">
+				<a href="interactivemap.html"><i class="fa fa-location"></i></a>
+				<h3>Interactive Map</h3>
+				<div class="colored-line-small-center"></div>
+				<p>Interactive Delhi Metro Map</p><br><br>
+			</div>
+
+			<!-- Section 4 -->
+			<div data-sr="enter top over 1s, wait 0.3s, move 24px, reset" class="col-md-4">
+				<a href="stationdetails.html"><i class="fa-solid fa-train-subway"></i></a>
+				<h3>Know Your Station</h3>
+				<div class="colored-line-small-center"></div>
+				<p>Location / Services Availability</p><br><br>
+			</div>
+
+			<!-- Section 5 -->
+			<div data-sr="enter top over 1s, wait 0.3s, move 24px, reset" class="col-md-4">
+				<a
+					href="https://docs.google.com/viewerng/viewer?url=https://st2.indiarailinfo.com/kjfdsuiemjvcya0/0/5/1/0/1014510/15736176/firstimings.pdf"><i
+						class="fa fa-clock-o"> </i></a>
+				<h3>First / Last Metro</h3>
+				<div class="colored-line-small-center"></div>
+				<p>First and Last Metro Timings for Every Stations</p><br><br>
+			</div>
+
+			<!-- Section 6 -->
+			<div data-sr="enter top over 1s, wait 0.3s, move 24px, reset" class="col-md-4">
+				<a href="https://paytm.com/metro-card-recharge"><i class="fa fa-credit-card"></i></a>
+				<h3>Card Recharge</h3>
+				<div class="colored-line-small-center"></div>
+				<p>Recharge Metro Card Online - PAYTM</p><br><br>
+			</div>
+
+			<!-- Section 7 -->
+			<div data-sr="enter top over 1s, wait 0.3s, move 24px, reset" class="col-md-4">
+				<a href="otherpages\parkingcharges.html"><i class="fa fa-car"></i></a>
+				<h3>Parking</h3>
+				<div class="colored-line-small-center"></div>
+				<p>Parking Availability and Charges</p><br><br>
+			</div>
+
+			<!-- Section 8 -->
+			<div data-sr="enter top over 1s, wait 0.3s, move 24px, reset" class="col-md-4">
+				<a href="Metro Museum\metromuseum.html"><i class="fa fa-building"></i></a>
+				<h3>Metro Museum</h3>
+				<div class="colored-line-small-center"></div>
+				<p>Delhi Metro Museum</p><br><br>
+			</div>
+
+			<!-- Section 9 -->
+			<div data-sr="enter top over 1s, wait 0.3s, move 24px, reset" class="col-md-4">
+				<a href="Crowdedness Indicator\index.html"><i class="fa fa-users"></i></a>
+				<h3>Crowdedness Indicator</h3>
+				<div class="colored-line-small-center"></div>
+				<p>Coach by Coach Crowdedness Indicator</p><br><br>
+			</div>
+
+			<!-- Section 10 -->
+			<div data-sr="enter top over 1s, wait 0.3s, move 24px, reset" class="col-md-4">
+				<a href="Tour Guide\index.html"><i class="fa fa-compass"></i></a>
+				<h3>Tour Guide</h3>
+				<div class="colored-line-small-center"></div>
+				<p>Famous Tourist Spots near Delhi Metro Details</p><br><br>
+			</div>
+
+			<!-- Section 11 -->
+			<div data-sr="enter top over 1s, wait 0.3s, move 24px, reset" class="col-md-4">
+				<a href="Railway\index.html"><i class="fa fa-train"></i></a>
+				<h3>Indian Railway Connect</h3>
+				<div class="colored-line-small-center"></div>
+				<p>Delhi Metro - Indian Railway Connected Stations</p><br><br>
+			</div>
+
+			<!-- Section 12 -->
+			<div data-sr="enter top over 1s, wait 0.3s, move 24px, reset" class="col-md-4">
+				<a href="Airports\index.html"><i class="fa fa-plane"></i></a>
+				<h3>Delhi Airports</h3>
+				<div class="colored-line-small-center"></div>
+				<p>Delhi Metro - Delhi Airport Connected Stations</p><br><br>
+			</div>
+
+			<!-- Section 13 -->
+			<div data-sr="enter top over 1s, wait 0.3s, move 24px, reset" class="col-md-4">
+				<a href="otherpages\upcomingmetro.html"><i class="fa fa-history"></i></a>
+				<h3>Upcoming Metro Lines</h3>
+				<div class="colored-line-small-center"></div>
+				<p>Map of Upcoming / Under Construction metro lines.</p><br><br>
+			</div>
+
+			<!-- Section 14 -->
+			<div data-sr="enter top over 1s, wait 0.3s, move 24px, reset" class="col-md-4">
+				<a href="mailto:delhimetrorp@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+				<h3>Feedback</h3>
+				<div class="colored-line-small-center"></div>
+				<p>Email us</p><br><br>
+			</div>
+
+			<!-- Section 15 -->
+			<div data-sr="enter top over 1s, wait 0.3s, move 24px, reset" class="col-md-4">
+				<a href = "apk\Delhi Metro App Kunal.apk" Download="Delhi Metro Travel Planner App"><i class="fa fa-mobile"></i></a>
+				<h3>Download Our App</h3>
+				<div class="colored-line-small-center"></div>
+				<p>Download Our Android App</p><br><br>
+			</div>
+
+
+			<div data-sr="enter top over 1s, wait 0.3s, move 24px, reset" class="col-md-12" align="center">
+				<br><br><br>
+				<a class="twitter-timeline" data-width="80%" data-height="400" data-theme="dark"
+					href="https://twitter.com/OfficialDMRC?ref_src=twsrc%5Etfw">
+					<h3>Tweets by
+						OfficialDMRC</h3>
+				</a>
+				<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+				<br><br>
+			</div>
+
+
+			<div data-sr="enter top over 1s, wait 0.3s, move 24px, reset" class="col-md-12" align="center">
+				<br><br>
+				<h1>Service Status</h1>
+				<p>Green = Active | Red = Inactive</p>
+				<br><br>
+
+				<div data-sr=" wait 0.3s, move 24px, reset" class="col-md-4" align="center">
+					<br><br><a aria-label='Active' class='h-button centered' data-text='Red Line'>
+						<span>A</span>
+						<span>c</span>
+						<span>t</span>
+						<span>i</span>
+						<span>v</span>
+						<span>e</span>
+					</a><br>
+				</div>
+				<div data-sr="wait 0.3s, move 24px, reset" class="col-md-4" align="center">
+					<br><br><a aria-label='Active' class='h-button centered' data-text='Yellow Line'>
+						<span>A</span>
+						<span>c</span>
+						<span>t</span>
+						<span>i</span>
+						<span>v</span>
+						<span>e</span>
+					</a><br>
+				</div>
+				<div data-sr="wait 0.3s, move 24px, reset" class="col-md-4" align="center">
+					<br><br><a aria-label='Active' class='h-button centered' data-text='Blue Line'>
+						<span>A</span>
+						<span>c</span>
+						<span>t</span>
+						<span>i</span>
+						<span>v</span>
+						<span>e</span>
+					</a><br>
+				</div>
+				<div data-sr="wait 0.3s, move 24px, reset" class="col-md-4" align="center">
+					<br><br><a aria-label='Active' class='h-button centered' data-text='Green Line'>
+						<span>A</span>
+						<span>c</span>
+						<span>t</span>
+						<span>i</span>
+						<span>v</span>
+						<span>e</span>
+					</a><br>
+				</div>
+				<div data-sr=" wait 0.3s, move 24px, reset" class="col-md-4" align="center">
+					<br><br><a aria-label='Active' class='h-button centered' data-text='Violet Line'>
+						<span>A</span>
+						<span>c</span>
+						<span>t</span>
+						<span>i</span>
+						<span>v</span>
+						<span>e</span>
+					</a><br>
+				</div>
+				<div data-sr=" wait 0.3s, move 24px, reset" class="col-md-4" align="center">
+					<br><br><a aria-label='Active' class='h-button centered' data-text='Pink Line'>
+						<span>A</span>
+						<span>c</span>
+						<span>t</span>
+						<span>i</span>
+						<span>v</span>
+						<span>e</span>
+					</a><br>
+				</div>
+				<div data-sr=" wait 0.3s, move 24px, reset" class="col-md-4" align="center">
+					<br><br><a aria-label='Inactive' class='h-button centered' data-text='Magenta Line'>
+						<span>I</span>
+						<span>n</span>
+						<span>a</span>
+						<span>c</span>
+						<span>t</span>
+						<span>i</span>
+						<span>v</span>
+						<span>e</span>
+					</a><br>
+				</div>
+				<div data-sr="wait 0.3s, move 24px, reset" class="col-md-4" align="center">
+					<br><br><a aria-label='Active' class='h-button centered inactive' data-text='Grey Line'>
+						<span>I</span>
+						<span>n</span>
+						<span>a</span>
+						<span>c</span>
+						<span>t</span>
+						<span>i</span>
+						<span>v</span>
+						<span>e</span>
+					</a><br>
+				</div>
+				<div data-sr=" wait 0.3s, move 24px, reset" class="col-md-4" align="center">
+					<br><br><a aria-label='Active' class='h-button centered' data-text='Orange Line'>
+						<span>A</span>
+						<span>c</span>
+						<span>t</span>
+						<span>i</span>
+						<span>v</span>
+						<span>e</span>
+					</a><br>
+				</div>
+				<div data-sr="	wait 0.3s, move 24px, reset" class="col-md-12" align="center">
+					<br><br><a aria-label='Active' class='h-button centered' data-text='Rapid Metro'>
+						<span>A</span>
+						<span>c</span>
+						<span>t</span>
+						<span>i</span>
+						<span>v</span>
+						<span>e</span>
+					</a><br>
+				</div>
+
+				<div data-sr="enter top over 1s, wait 0.3s, move 24px, reset" class="col-md-12" align="center">
+					<br><br>
+					<p>DMRC Helpline no. <b>155370</b> Email:<b>helpline@dmrc.org</b></p>
+					DMRC Missing, Separated, Women, <br>Child and Specially Abled Commuters Helpline<br>
+					<b>011-23415480</b> <br>
+					<b>8800550490</b> <br><br>
+
+					<p>CISF Helpline no.<b>155655</b></p>
+
+					<p> Delhi Police Control Room : <b>112</b></p>
+
+					<p>
+						Women Helpline
+						: <b>1091</b>
+						Senior Citizen Helpline
+						: <b>1091, 1291</b>
+					</p>
+					<br><br>
+				</div>
+
+			</div>
+		</div>
+
+	</section>
+	<!-- Button ENDS -->
+
+	<!-- FOOTER -->
+	<footer id="footer">
+		<div class="container">
+			<div class="row text-center">
+				<p>
+					&copy; 2023 | DESIGNED & DEVELOPED BY KUNAL SACHDEVA AND ANKIT PANDEY.
+					<span class="social">
+						<a href="mailto:helpline@dmrc.org"><i class="fa fa-envelope-square"></i></a>
+						<a href="https://www.instagram.com/officialdmrc"><i class="fa fa-instagram"></i></a>
+						<a href="https://www.twitter.com/OfficialDMRC"><i class="fa fa-twitter-square"></i></a>
+						<a href="https://www.facebook.com/officialdmrc/"><i class="fa fa-facebook-square"></i></a>
+					</span>
+				</p>
+			</div>
+		</div>
+	</footer>
+	<!-- FOOTER ENDS -->
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- SMOOTH SCROLL -->
+	<script src="js/smooth-scroll.min.js"></script>
+	<!-- PARALLAX IMG -->
+	<script src="js/jquery.parallax-1.1.3.js"></script>
+	<!-- SCROLL REVEAL -->
+	<script src="js/scrollReveal.min.js"></script>
+	<!-- FUNCTIONS -->
+	<script src="js/functions.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

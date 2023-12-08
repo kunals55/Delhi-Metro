@@ -1,0 +1,1940 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Delhi Metro Station Details</title>
+
+  <!--Java Script-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+
+  <!--Bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Roboto&display=swap"
+    rel="stylesheet">
+
+  <!-- WEB FONTS -->
+  <link href='http://fonts.googleapis.com/css?family=Roboto:100,300,100italic,400,300italic' rel='stylesheet'
+    type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300&display=swap"
+    rel="stylesheet">
+  <link rel="shortcut icon" href="images\favicon.ico" type="image/x-icon">
+
+  <!-- BOOTSTRAP -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/7d405a99ed.js" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      font-family: Roboto, sans-serif;
+      font-size: 16px;
+      font-weight: 300;
+      color: #333333;
+      line-height: 28px;
+      background-color: #9a6f5f;
+    }
+
+    .container {
+      width: 70%;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: lightcyan;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+    }
+
+    h1,
+    h2 {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 300;
+    }
+
+    /* RESPONSIVE DESIGN */
+
+    /* Extra Small devices (tablets, 446px and less) */
+    @media (max-width: 456px) {
+
+      .container {
+        width: 100%;
+      }
+
+      body {
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      h1 {
+        font-size: 40px;
+        line-height: 58px;
+      }
+    }
+
+    /* Small devices (tablets, 768px and less) */
+    @media (max-width: 768px) {
+
+      .container {
+        width: 90%;
+      }
+
+      body {
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      h1 {
+        font-size: 40px;
+        line-height: 58px;
+      }
+
+    }
+
+
+    /* Medium devices (desktops, 992px and up) */
+    @media (max-width: 992px) {
+
+      .container {
+        width: 95%;
+      }
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .dropdown select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: lightgray;
+      color: #333;
+      appearance: none;
+      cursor: pointer;
+    }
+
+    .details {
+      margin-top: 20px;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .details.active {
+      opacity: 1;
+      max-height: 500px;
+    }
+
+    .details p {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Delhi Metro Station Details</h1>
+
+    <div class="dropdown">
+      <select id="stationSelect" onchange="showDetails()">
+        <option value="" selected disabled>Select a station</option>
+        <option value="station1">Adarsh Nagar</option>
+        <option value="station2">AIIMS</option>
+        <option value="station3">Akshardham</option>
+        <option value="station4">Anand Vihar</option>
+        <option value="station5">Arjan Garh</option>
+        <option value="station6">Ashok Park Main</option>
+        <option value="station7">Azadpur</option>
+        <option value="station8">Badarpur</option>
+        <option value="station9">Barakhamba Road</option>
+        <option value="station10">Bata Chowk</option>
+        <option value="station11">Botanical Garden</option>
+        <option value="station12">Central Secretariat</option>
+        <option value="station13">Chandni Chowk</option>
+        <option value="station14">Chhatarpur</option>
+        <option value="station15">Civil Lines</option>
+        <option value="station16">Dilshad Garden</option>
+        <option value="station17">Dwarka</option>
+        <option value="station18">Ghitorni</option>
+        <option value="station19">Golf Course</option>
+        <option value="station20">Green Park</option>
+        <option value="station21">Guru Dronacharya</option>
+        <option value="station22">Haiderpur</option>
+        <option value="station23">Hauz Khas</option>
+        <option value="station24">Huda City Centre</option>
+        <option value="station25">IFFCO Chowk</option>
+        <option value="station26">INA</option>
+        <option value="station27">Inderlok</option>
+        <option value="station28">Indraprastha</option>
+        <option value="station29">Jahangirpuri</option>
+        <option value="station30">Janakpuri East</option>
+        <option value="station31">Janakpuri West</option>
+        <option value="station32">Jangpura</option>
+        <option value="station33">Jasola Vihar</option>
+        <option value="station34">Jhandewalan</option>
+        <option value="station35">Jhil Mil</option>
+        <option value="station36">Jor Bagh</option>
+        <option value="station37">Kailash Colony</option>
+        <option value="station38">Kalkaji Mandir</option>
+        <option value="station39">Kanhaiya Nagar</option>
+        <option value="station40">Karkardooma</option>
+        <option value="station41">Karol Bagh</option>
+        <option value="station42">Kashmere Gate</option>
+        <option value="station43">Kaushambi</option>
+        <option value="station44">Keshav Puram</option>
+        <option value="station45">Kirti Nagar</option>
+        <option value="station46">Kohat Enclave</option>
+        <option value="station47">Lajpat Nagar</option>
+        <option value="station48">Lok Kalyan Marg</option>
+        <option value="station49">Madipur</option>
+        <option value="station50">Majlis Park</option>
+        <option value="station51">Mandi House</option>
+        <option value="station52">Mansarovar Park</option>
+        <option value="station53">Mayur Vihar Phase 1</option>
+        <option value="station54">Mayur Vihar Pocket I</option>
+        <option value="station55">Moolchand</option>
+        <option value="station56">Mundka</option>
+        <option value="station57">Nangloi</option>
+        <option value="station58">Nawada</option>
+        <option value="station59">Nehru Place</option>
+        <option value="station60">Netaji Subhash Place</option>
+        <option value="station61">New Ashok Nagar</option>
+        <option value="station62">New Delhi</option>
+        <option value="station63">Nirman Vihar</option>
+        <option value="station64">Noida City Centre</option>
+        <option value="station65">Noida Golf Course</option>
+        <option value="station66">Noida Sector 15</option>
+        <option value="station67">Noida Sector 16</option>
+        <option value="station68">Noida Sector 18</option>
+        <option value="station69">Noida Electronic City</option>
+        <option value="station70">Okhla</option>
+        <option value="station71">Paschim Vihar East</option>
+        <option value="station72">Paschim Vihar West</option>
+        <option value="station73">Patel Chowk</option>
+        <option value="station74">Peera Garhi</option>
+        <option value="station75">Pitampura</option>
+        <option value="station76">Pragati Maidan</option>
+        <option value="station78">Pratap Nagar</option>
+        <option value="station79">Preet Vihar</option>
+        <option value="station80">Pul Bangash</option>
+        <option value="station81">Punjabi Bagh East</option>
+        <option value="station82">Qutub Minar</option>
+        <option value="station83">Race Course</option>
+        <option value="station84">Rajdhani Park</option>
+        <option value="station85">Rajendra Place</option>
+        <option value="station86">Rajiv Chowk</option>
+        <option value="station87">Rajouri Garden</option>
+        <option value="station88">Ramesh Nagar</option>
+        <option value="station89">Rithala</option>
+        <option value="station90">Rohini East</option>
+        <option value="station91">Rohini Sector 18-19</option>
+        <option value="station92">Rohini West</option>
+        <option value="station93">Saket</option>
+        <option value="station94">Samaypur Badli</option>
+        <option value="station95">Sarai</option>
+        <option value="station96">Sarita Vihar</option>
+        <option value="station97">Seelampur</option>
+        <option value="station98">Satguru Ramsingh Marg</option>
+        <option value="station99">Shadipur</option>
+        <option value="station100">Shahdara</option>
+        <option value="station101">Shastri Nagar</option>
+        <option value="station102">Shastri Park</option>
+        <option value="station103">Shivaji Park</option>
+        <option value="station104">Shiv Vihar</option>
+        <option value="station105">Sikanderpur</option>
+        <option value="station106">Subhash Nagar</option>
+        <option value="station107">Sultanpur</option>
+        <option value="station108">Surajmal Stadium</option>
+        <option value="station109">Tagore Garden</option>
+        <option value="station110">Tilak Nagar</option>
+        <option value="station111">Tis Hazari</option>
+        <option value="station112">Tughlakabad</option>
+        <option value="station113">Udyog Bhawan</option>
+        <option value="station114">Udyog Nagar</option>
+        <option value="station115">Uttam Nagar East</option>
+        <option value="station116">Uttam Nagar West</option>
+        <option value="station117">Vaishali</option>
+        <option value="station118">Vidhan Sabha</option>
+        <option value="station119">Vishwavidyalaya</option>
+        <option value="station120">Welcome</option>
+        <option value="station121">Yamuna Bank</option>
+      </select>
+    </div>
+
+    <div class="details" id="stationDetails">
+      <p><strong><i class="fa-solid fa-train-subway">&nbsp</i>Station Name:</strong> <span id="stationName"></span>
+      </p>
+      <p><strong><i class="fa-solid fa-location-dot">&nbsp</i>Location:</strong> <span id="stationLocation"></span></p>
+      <p><strong><i class="fa-solid fa-grip-lines">&nbsp</i>Lines:</strong> <span id="stationLines"></span></p>
+      <p><strong><i class="fa-solid fa-car">&nbsp</i>Parking:</strong> <span id="stationParking"></span></p>
+      <p><strong><i class="fa-solid fa-money-bills">&nbsp</i>ATM:</strong> <span id="stationATM"></span></p>
+      <p><strong><i class="fa-solid fa-bowl-food">&nbsp</i>Snacks:</strong> <span id="stationSnacks"></span></p>
+      <p><strong><i class="fa-solid fa-droplet">&nbsp</i>Water Booth:</strong> <span id="stationWater"></span></p>
+      <p><strong><i class="fa-solid fa-elevator">&nbsp</i>Lift/Escalator Available:</strong> <span
+          id="stationLift"></span></p>
+      <p><strong><i class="fa-solid fa-bicycle">&nbsp</i>Travel (Yulu/Cab):</strong> <span id="stationTravel"></span>
+      </p>
+      <p><strong><i class="fa-solid fa-house-medical">&nbsp</i>Medical:</strong> <span id="stationMedical"></span></p>
+      <p><strong><i class="fa-solid fa-wheelchair ">&nbsp</i>Divyang Friendly Station:</strong> <span
+          id="stationDivyang"></span></p>
+    </div>
+  </div>
+
+  <script>
+    function showDetails() {
+      var selectBox = document.getElementById("stationSelect");
+      var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+
+      var stationName = document.getElementById("stationName");
+      var stationLocation = document.getElementById("stationLocation");
+      var stationLines = document.getElementById("stationLines");
+      var stationParking = document.getElementById("stationParking");
+      var stationATM = document.getElementById("stationATM");
+      var stationSnacks = document.getElementById("stationSnacks");
+      var stationWater = document.getElementById("stationWater");
+      var stationLift = document.getElementById("stationLift");
+      var stationTravel = document.getElementById("stationTravel");
+      var stationMedical = document.getElementById("stationMedical");
+      var stationDivyang = document.getElementById("stationDivyang");
+
+      if (selectedValue === "") {
+        stationName.textContent = "";
+        stationLocation.textContent = "";
+        stationLines.textContent = "";
+        stationParking.textContent = "";
+        stationATM.textContent = "";
+        stationSnacks.textContent = "";
+        stationWater.textContent = "";
+        stationLift.textContent = "";
+        stationTravel.textContent = "";
+        stationMedical.textContent = "";
+        stationDivyang.textContent = "";
+        return;
+      }
+
+      var detailsDiv = document.getElementById("stationDetails");
+      detailsDiv.classList.add("active");
+
+      // Retrieve and display the details of the selected station
+      switch (selectedValue) {
+        case "station1":
+          stationName.textContent = "Adarsh Nagar";
+          stationLocation.textContent = "North Delhi";
+          stationLines.textContent = "Yellow Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station2":
+          stationName.textContent = "AIIMS";
+          stationLocation.textContent = "South Delhi";
+          stationLines.textContent = "Yellow Line, Pink Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station3":
+          stationName.textContent = "Akshardham";
+          stationLocation.textContent = "East Delhi";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station4":
+          stationName.textContent = "Anand Vihar";
+          stationLocation.textContent = "East Delhi";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station5":
+          stationName.textContent = "Arjan Garh";
+          stationLocation.textContent = "South Delhi";
+          stationLines.textContent = "Yellow Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station6":
+          stationName.textContent = "Ashok Park Main";
+          stationLocation.textContent = "West Delhi";
+          stationLines.textContent = "Green Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station7":
+          stationName.textContent = "Azadpur";
+          stationLocation.textContent = "North Delhi";
+          stationLines.textContent = "Yellow Line, Pink Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station8":
+          stationName.textContent = "Badarpur";
+          stationLocation.textContent = "South Delhi";
+          stationLines.textContent = "Violet Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station9":
+          stationName.textContent = "Barakhamba Road";
+          stationLocation.textContent = "Central Delhi";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station10":
+          stationName.textContent = "Bata Chowk";
+          stationLocation.textContent = "Faridabad";
+          stationLines.textContent = "Violet Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station11":
+          stationName.textContent = "Botanical Garden";
+          stationLocation.textContent = "Noida";
+          stationLines.textContent = "Blue Line, Magenta Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "Yes";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station12":
+          stationName.textContent = "Central Secretariat";
+          stationLocation.textContent = "New Delhi";
+          stationLines.textContent = "Yellow Line, Violet Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "Yes";
+          stationSnacks.textContent = "Yes";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "Yes";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station13":
+          stationName.textContent = "Chandni Chowk";
+          stationLocation.textContent = "Old Delhi";
+          stationLines.textContent = "Yellow Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station14":
+          stationName.textContent = "Chhatarpur";
+          stationLocation.textContent = "South Delhi";
+          stationLines.textContent = "Yellow Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station15":
+          stationName.textContent = "Civil Lines";
+          stationLocation.textContent = "North Delhi";
+          stationLines.textContent = "Yellow Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station16":
+          stationName.textContent = "Dilshad Garden";
+          stationLocation.textContent = "East Delhi";
+          stationLines.textContent = "Red Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station17":
+          stationName.textContent = "Dwarka";
+          stationLocation.textContent = "South West Delhi";
+          stationLines.textContent = "Blue Line, Magenta Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station18":
+          stationName.textContent = "Ghitorni";
+          stationLocation.textContent = "South Delhi";
+          stationLines.textContent = "Yellow Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station19":
+          stationName.textContent = "Golf Course";
+          stationLocation.textContent = "Noida";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station20":
+          stationName.textContent = "Green Park";
+          stationLocation.textContent = "South Delhi";
+          stationLines.textContent = "Yellow Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station21":
+          stationName.textContent = "Guru Dronacharya";
+          stationLocation.textContent = "Gurugram";
+          stationLines.textContent = "Yellow Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station22":
+          stationName.textContent = "Haiderpur";
+          stationLocation.textContent = "North West Delhi";
+          stationLines.textContent = "Yellow Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station23":
+          stationName.textContent = "Hauz Khas";
+          stationLocation.textContent = "South Delhi";
+          stationLines.textContent = "Yellow Line, Magenta Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "Yes";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station24":
+          stationName.textContent = "Huda City Centre";
+          stationLocation.textContent = "Gurugram";
+          stationLines.textContent = "Yellow Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station25":
+          stationName.textContent = "IFFCO Chowk";
+          stationLocation.textContent = "Gurugram";
+          stationLines.textContent = "Yellow Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station26":
+          stationName.textContent = "INA";
+          stationLocation.textContent = "South Delhi";
+          stationLines.textContent = "Yellow Line, Pink Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "YES";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station27":
+          stationName.textContent = "Inderlok";
+          stationLocation.textContent = "North West Delhi";
+          stationLines.textContent = "Red Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station28":
+          stationName.textContent = "Indraprastha";
+          stationLocation.textContent = "East Delhi";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station29":
+          stationName.textContent = "Jahangirpuri";
+          stationLocation.textContent = "North Delhi";
+          stationLines.textContent = "Yellow Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station30":
+          stationName.textContent = "Janakpuri East";
+          stationLocation.textContent = "West Delhi";
+          stationLines.textContent = "Blue Line, Magenta Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station31":
+          stationName.textContent = "Janakpuri West";
+          stationLocation.textContent = "West Delhi";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "Yes";
+          stationWater.textContent = "Yes";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station32":
+          stationName.textContent = "Jangpura";
+          stationLocation.textContent = "South Delhi";
+          stationLines.textContent = "Violet Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station33":
+          stationName.textContent = "Jasola Vihar";
+          stationLocation.textContent = "South Delhi";
+          stationLines.textContent = "Magenta Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station34":
+          stationName.textContent = "Jhandewalan";
+          stationLocation.textContent = "Central Delhi";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station35":
+          stationName.textContent = "Jhil Mil";
+          stationLocation.textContent = "East Delhi";
+          stationLines.textContent = "Red Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station36":
+          stationName.textContent = "Jor Bagh";
+          stationLocation.textContent = "South Delhi";
+          stationLines.textContent = "Yellow Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station37":
+          stationName.textContent = "Kailash Colony";
+          stationLocation.textContent = "South Delhi";
+          stationLines.textContent = "Violet Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station38":
+          stationName.textContent = "Kalkaji Mandir";
+          stationLocation.textContent = "South Delhi";
+          stationLines.textContent = "Violet Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station39":
+          stationName.textContent = "Kanhaiya Nagar";
+          stationLocation.textContent = "North West Delhi";
+          stationLines.textContent = "Red Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station40":
+          stationName.textContent = "Karkardooma";
+          stationLocation.textContent = "East Delhi";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station41":
+          stationName.textContent = "Karol Bagh";
+          stationLocation.textContent = "Central Delhi";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "Yes";
+          stationWater.textContent = "Yes";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station42":
+          stationName.textContent = "Kashmere Gate";
+          stationLocation.textContent = "North Delhi";
+          stationLines.textContent = "Red Line, Yellow Line, Violet Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station43":
+          stationName.textContent = "Kaushambi";
+          stationLocation.textContent = "Ghaziabad";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station44":
+          stationName.textContent = "Keshav Puram";
+          stationLocation.textContent = "North West Delhi";
+          stationLines.textContent = "Red Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station45":
+          stationName.textContent = "Kirti Nagar";
+          stationLocation.textContent = "West Delhi";
+          stationLines.textContent = "Blue Line, Green Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station46":
+          stationName.textContent = "Kohat Enclave";
+          stationLocation.textContent = "North West Delhi";
+          stationLines.textContent = "Red Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station47":
+          stationName.textContent = "Lajpat Nagar";
+          stationLocation.textContent = "South Delhi";
+          stationLines.textContent = "Violet Line, Pink Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station48":
+          stationName.textContent = "Lok Kalyan Marg";
+          stationLocation.textContent = "New Delhi";
+          stationLines.textContent = "Yellow Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station49":
+          stationName.textContent = "Madipur";
+          stationLocation.textContent = "West Delhi";
+          stationLines.textContent = "Green Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station50":
+          stationName.textContent = "Majlis Park";
+          stationLocation.textContent = "North Delhi";
+          stationLines.textContent = "Pink Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station51":
+          stationName.textContent = "Mandi House";
+          stationLocation.textContent = "Central Delhi";
+          stationLines.textContent = "Blue Line, Violet Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station52":
+          stationName.textContent = "Mansarovar Park";
+          stationLocation.textContent = "East Delhi";
+          stationLines.textContent = "Red Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station53":
+          stationName.textContent = "Mayur Vihar Phase 1";
+          stationLocation.textContent = "East Delhi";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station54":
+          stationName.textContent = "Mayur Vihar Pocket I";
+          stationLocation.textContent = "East Delhi";
+          stationLines.textContent = "Pink Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station55":
+          stationName.textContent = "Moolchand";
+          stationLocation.textContent = "South Delhi";
+          stationLines.textContent = "Violet Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station56":
+          stationName.textContent = "Mundka";
+          stationLocation.textContent = "West Delhi";
+          stationLines.textContent = "Green Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station57":
+          stationName.textContent = "Nangloi";
+          stationLocation.textContent = "West Delhi";
+          stationLines.textContent = "Green Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station58":
+          stationName.textContent = "Nawada";
+          stationLocation.textContent = "West Delhi";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station59":
+          stationName.textContent = "Nehru Place";
+          stationLocation.textContent = "South Delhi";
+          stationLines.textContent = "Violet Line, Magenta Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station60":
+          stationName.textContent = "Netaji Subhash Place";
+          stationLocation.textContent = "North West Delhi";
+          stationLines.textContent = "Red Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station61":
+          stationName.textContent = "New Ashok Nagar";
+          stationLocation.textContent = "East Delhi";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station62":
+          stationName.textContent = "New Delhi";
+          stationLocation.textContent = "Central Delhi";
+          stationLines.textContent = "Yellow Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station63":
+          stationName.textContent = "Nirman Vihar";
+          stationLocation.textContent = "East Delhi";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station64":
+          stationName.textContent = "Noida City Centre";
+          stationLocation.textContent = "Noida";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station65":
+          stationName.textContent = "Noida Golf City";
+          stationLocation.textContent = "Noida";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station66":
+          stationName.textContent = "Noida Sector 15";
+          stationLocation.textContent = "Noida";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station67":
+          stationName.textContent = "Noida Sector 16";
+          stationLocation.textContent = "Noida";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station68":
+          stationName.textContent = "Noida Sector 18";
+          stationLocation.textContent = "Noida";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station69":
+          stationName.textContent = "Noida Electronic City";
+          stationLocation.textContent = "Noida";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station70":
+          stationName.textContent = "Okhla";
+          stationLocation.textContent = "South Delhi";
+          stationLines.textContent = "Magenta Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station71":
+          stationName.textContent = "Paschim Vihar East";
+          stationLocation.textContent = "West Delhi";
+          stationLines.textContent = "Green Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+
+          break;
+        case "station72":
+          stationName.textContent = "Paschim Vihar West";
+          stationLocation.textContent = "West Delhi";
+          stationLines.textContent = "Green Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station73":
+          stationName.textContent = "Patel Chowk";
+          stationLocation.textContent = "Central Delhi";
+          stationLines.textContent = "Yellow Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station74":
+          stationName.textContent = "Peera Garhi";
+          stationLocation.textContent = "West Delhi";
+          stationLines.textContent = "Green Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station75":
+          stationName.textContent = "Pitampura";
+          stationLocation.textContent = "North West Delhi";
+          stationLines.textContent = "Red Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station76":
+          stationName.textContent = "Pragati Maidan";
+          stationLocation.textContent = "Central Delhi";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station77":
+          stationName.textContent = "Pratap Nagar";
+          stationLocation.textContent = "North Delhi";
+          stationLines.textContent = "Pink Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station78":
+          stationName.textContent = "Preet Vihar";
+          stationLocation.textContent = "East Delhi";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station79":
+          stationName.textContent = "Pul Bangash";
+          stationLocation.textContent = "North Delhi";
+          stationLines.textContent = "Red Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station80":
+          stationName.textContent = "Punjabi Bagh East";
+          stationLocation.textContent = "West Delhi";
+          stationLines.textContent = "Green Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station81":
+          stationName.textContent = "Punjabi Bagh West";
+          stationLocation.textContent = "West Delhi";
+          stationLines.textContent = "Green Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station82":
+          stationName.textContent = "Qutub Minar";
+          stationLocation.textContent = "South Delhi";
+          stationLines.textContent = "Yellow Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station83":
+          stationName.textContent = "Race Course";
+          stationLocation.textContent = "South Delhi";
+          stationLines.textContent = "Yellow Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station84":
+          stationName.textContent = "Rajdhani Park";
+          stationLocation.textContent = "West Delhi";
+          stationLines.textContent = "Green Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station85":
+          stationName.textContent = "Rajendra Place";
+          stationLocation.textContent = "Central Delhi";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station86":
+          stationName.textContent = "Rajiv Chowk";
+          stationLocation.textContent = "Central Delhi";
+          stationLines.textContent = "Yellow Line, Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "Yes";
+          stationMedical.textContent = "";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station87":
+          stationName.textContent = "Rajouri Garden";
+          stationLocation.textContent = "West Delhi";
+          stationLines.textContent = "Blue Line, Pink Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station88":
+          stationName.textContent = "Ramesh Nagar";
+          stationLocation.textContent = "West Delhi";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station89":
+          stationName.textContent = "Rithala";
+          stationLocation.textContent = "North Delhi";
+          stationLines.textContent = "Red Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station90":
+          stationName.textContent = "Rohini East";
+          stationLocation.textContent = "North West Delhi";
+          stationLines.textContent = "Red Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station91":
+          stationName.textContent = "Rohini Sector 18-19";
+          stationLocation.textContent = "North West Delhi";
+          stationLines.textContent = "Yellow Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station92":
+          stationName.textContent = "Rohini West";
+          stationLocation.textContent = "North West Delhi";
+          stationLines.textContent = "Red Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station93":
+          stationName.textContent = "Saket";
+          stationLocation.textContent = "South Delhi";
+          stationLines.textContent = "Yellow Line, Magenta Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station94":
+          stationName.textContent = "Samaypur Badli ";
+          stationLocation.textContent = "North West Delhi";
+          stationLines.textContent = "Yellow Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station95":
+          stationName.textContent = "Sarai";
+          stationLocation.textContent = "South Delhi";
+          stationLines.textContent = "Violet Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station96":
+          stationName.textContent = "Sarita Vihar";
+          stationLocation.textContent = "South Delhi";
+          stationLines.textContent = "Violet Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station97":
+          stationName.textContent = "Seelampur";
+          stationLocation.textContent = "East Delhi";
+          stationLines.textContent = "Red Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station98":
+          stationName.textContent = "Satguru Ramsingh Marg  ";
+          stationLocation.textContent = "West Delhi";
+          stationLines.textContent = "Green Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station99":
+          stationName.textContent = "Shadipur";
+          stationLocation.textContent = "West Delhi";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station100":
+          stationName.textContent = "Shahdara";
+          stationLocation.textContent = "East Delhi";
+          stationLines.textContent = "Red Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station101":
+          stationName.textContent = "Shastri Nagar";
+          stationLocation.textContent = "North Delhi";
+          stationLines.textContent = "Red Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station102":
+          stationName.textContent = "Shastri Park";
+          stationLocation.textContent = "North East Delhi";
+          stationLines.textContent = "Red Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station103":
+          stationName.textContent = "Shivaji Park";
+          stationLocation.textContent = "West Delhi";
+          stationLines.textContent = "Green Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station104":
+          stationName.textContent = "Shiv Vihar";
+          stationLocation.textContent = "East Delhi";
+          stationLines.textContent = "Red Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station105":
+          stationName.textContent = "Sikandarpur";
+          stationLocation.textContent = "Gurugram";
+          stationLines.textContent = "Yellow Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station106":
+          stationName.textContent = "Subhash Nagar";
+          stationLocation.textContent = "West Delhi";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station107":
+          stationName.textContent = "Sultanpur";
+          stationLocation.textContent = "South Delhi";
+          stationLines.textContent = "Yellow Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station108":
+          stationName.textContent = "Surajmal Stadium";
+          stationLocation.textContent = "West Delhi";
+          stationLines.textContent = "Green Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station109":
+          stationName.textContent = "Tagore Garden";
+          stationLocation.textContent = "West Delhi";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station110":
+          stationName.textContent = "Tilak Nagar";
+          stationLocation.textContent = "West Delhi";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station111":
+          stationName.textContent = "Tis Hazari";
+          stationLocation.textContent = "Central Delhi";
+          stationLines.textContent = "Green Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station112":
+          stationName.textContent = "Tughlakabaad";
+          stationLocation.textContent = "South Delhi";
+          stationLines.textContent = "Voilet Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station113":
+          stationName.textContent = "Udyog Bhawan";
+          stationLocation.textContent = "Central Delhi";
+          stationLines.textContent = "Yellow Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station114":
+          stationName.textContent = "Ugyog Nagar";
+          stationLocation.textContent = "West Delhi";
+          stationLines.textContent = "Green Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station115":
+          stationName.textContent = "Uttam Nagar East";
+          stationLocation.textContent = "West Delhi";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station116":
+          stationName.textContent = "Uttam Nagar West";
+          stationLocation.textContent = "West Delhi";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station117":
+          stationName.textContent = "Vaishali";
+          stationLocation.textContent = "East Delhi";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station118":
+          stationName.textContent = "Vidhan Sabha";
+          stationLocation.textContent = "North Delhi";
+          stationLines.textContent = "Yellow Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station119":
+          stationName.textContent = "Vishwavidyalaya";
+          stationLocation.textContent = "North Delhi";
+          stationLines.textContent = "Green Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station120":
+          stationName.textContent = "Welcome";
+          stationLocation.textContent = "East Delhi";
+          stationLines.textContent = "Red Line , Pink Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        case "station121":
+          stationName.textContent = "Yamuna Bank";
+          stationLocation.textContent = "East Delhi";
+          stationLines.textContent = "Blue Line";
+          stationParking.textContent = "Yes";
+          stationATM.textContent = "No";
+          stationSnacks.textContent = "No";
+          stationWater.textContent = "No";
+          stationLift.textContent = "Yes";
+          stationTravel.textContent = "No";
+          stationMedical.textContent = "No";
+          stationDivyang.textContent = "Yes";
+          break;
+        default:
+          stationName.textContent = "Invalid Station";
+          stationLocation.textContent = "";
+          stationLines.textContent = "";
+          stationParking.textContent = "";
+          stationATM.textContent = "";
+          stationSnacks.textContent = "";
+          stationWater.textContent = "";
+          stationLift.textContent = "";
+          stationTravel.textContent = "";
+          stationMedical.textContent = "";
+          stationDivyang.textContent = "";
+          break;
+      }
+    }
+  </script>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- SMOOTH SCROLL -->
+  <script src="js/smooth-scroll.min.js"></script>
+</body>
+
+</html>
